@@ -5,6 +5,7 @@ import './App.css';
 
 const teamList = teamData.teams;
 
+//give the Team component some properties
 interface TeamProps {
   school: string;
   name: string;
@@ -12,22 +13,28 @@ interface TeamProps {
   state: string;
 }
 
+//show header message
 function Welcome() {
   return (
-    <h3>
-      In honor of the upcoming March Madness Tournament, here is a list of all
-      basketball teams in the NCAA. You're welcome.
-    </h3>
+    <div>
+      <h2 className="App">
+        In honor of the upcoming March Madness Tournament, here is a list of all
+        basketball teams in the NCAA.
+      </h2>
+      <h2>You're welcome.</h2>
+      <br />
+      <br />
+    </div>
   );
 }
 
+//create the Team component
 class Team extends React.Component<TeamProps> {
   render() {
     const oneTeam = this.props;
 
     return (
-      <div>
-        <img />
+      <div className="team-container">
         <h2>
           School: {oneTeam.school} {oneTeam.name}
         </h2>
@@ -38,9 +45,10 @@ class Team extends React.Component<TeamProps> {
   }
 }
 
+//display all the teams in the list
 function TeamList() {
   return (
-    <div>
+    <div className="team-list-container">
       {teamList.map((singleTeam) => (
         <Team {...singleTeam} />
       ))}
